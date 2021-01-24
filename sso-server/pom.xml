@@ -19,6 +19,12 @@
         </dependency>
 
         <dependency>
+            <groupId>com.learn</groupId>
+            <artifactId>sso-common</artifactId>
+            <version>${parent.version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
         </dependency>
