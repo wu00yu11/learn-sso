@@ -1,4 +1,4 @@
-package com.learn.sso.server.constants;
+package com.learn.sso.core.constants;
 
 /**
  * @author wu00y

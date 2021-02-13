@@ -1,7 +1,7 @@
 package com.learn.sso.server.controller;
 
-import com.learn.sso.core.Result;
-import com.learn.sso.server.constants.ResponseCode;
+import com.learn.sso.core.bean.Result;
+import com.learn.sso.core.constants.ResponseCode;
 import com.learn.sso.server.service.LoginService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +20,7 @@ public class LoginController {
     private LoginService loginService;
 
     public Result login(){
-        return new Result(ResponseCode.SUCCESS.getCode(),ResponseCode.SUCCESS.getMessage());
+        return new Result("0000","Success");
     }
 
 }
