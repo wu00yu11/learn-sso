@@ -1,12 +1,10 @@
 package com.learn.sso.core.bean;
 
 import com.learn.sso.core.constants.ResponseCode;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
-import java.net.ResponseCache;
 
 /**
  * @author wu00y
