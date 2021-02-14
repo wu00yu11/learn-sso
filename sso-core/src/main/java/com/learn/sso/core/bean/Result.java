@@ -23,14 +23,30 @@ public class Result<T> implements Serializable {
     /**数据集*/
     private T data;
 
+    /**
+     * @param bizCode
+     * @param bizMessage
+     */
     public Result(String bizCode, String bizMessage) {
         this(ResponseCode.SUCCESS.getCode(),ResponseCode.SUCCESS.getMessage(),bizCode,bizMessage,null);
     }
 
+    /**
+     * @param bizCode
+     * @param bizMessage
+     * @param data
+     */
     public Result(String bizCode, String bizMessage, T data) {
-        this(ResponseCode.SUCCESS.getCode(),ResponseCode.SUCCESS.getMessage(),bizCode,bizMessage,null);
+        this(ResponseCode.SUCCESS.getCode(),ResponseCode.SUCCESS.getMessage(),bizCode,bizMessage,data);
     }
 
+    /**
+     * @param code
+     * @param message
+     * @param bizCode
+     * @param bizMessage
+     * @param data
+     */
     public Result(String code, String message, String bizCode, String bizMessage, T data) {
         this.code = code;
         this.message = message;
