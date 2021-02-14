@@ -9,7 +9,7 @@ import lombok.Data;
  * @author 
  */
 @Data
-public class User implements Serializable {
+public class PremissionsMenu implements Serializable {
     /**
      * 主键
      */

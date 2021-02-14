@@ -9,7 +9,7 @@ import lombok.Data;
  * @author 
  */
 @Data
-public class User implements Serializable {
+public class RolePremissions implements Serializable {
     /**
      * 主键
      */

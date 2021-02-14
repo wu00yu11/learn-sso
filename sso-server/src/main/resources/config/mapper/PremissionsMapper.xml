@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.learn.sso.server.dao.PremissionsMapper">
+  <resultMap id="BaseResultMap" type="com.learn.sso.server.model.Premissions">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="menu_name" jdbcType="VARCHAR" property="menuName" />
+    <result column="menu_code" jdbcType="VARCHAR" property="menuCode" />
+    <result column="menu_addr" jdbcType="VARCHAR" property="menuAddr" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="version" jdbcType="INTEGER" property="version" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, menu_name, menu_code, menu_addr, create_time, update_time, version
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_menu
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_menu
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.learn.sso.server.model.Premissions" useGeneratedKeys="true">
+    insert into t_menu (menu_name, menu_code, menu_addr, 
+      create_time, update_time, version
+      )
+    values (#{menuName,jdbcType=VARCHAR}, #{menuCode,jdbcType=VARCHAR}, #{menuAddr,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{version,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.learn.sso.server.model.Premissions" useGeneratedKeys="true">
+    insert into t_menu
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="menuName != null">
+        menu_name,
+      </if>
+      <if test="menuCode != null">
+        menu_code,
+      </if>
+      <if test="menuAddr != null">
+        menu_addr,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="version != null">
+        version,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="menuName != null">
+        #{menuName,jdbcType=VARCHAR},
+      </if>
+      <if test="menuCode != null">
+        #{menuCode,jdbcType=VARCHAR},
+      </if>
+      <if test="menuAddr != null">
+        #{menuAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.learn.sso.server.model.Premissions">
+    update t_menu
+    <set>
+      <if test="menuName != null">
+        menu_name = #{menuName,jdbcType=VARCHAR},
+      </if>
+      <if test="menuCode != null">
+        menu_code = #{menuCode,jdbcType=VARCHAR},
+      </if>
+      <if test="menuAddr != null">
+        menu_addr = #{menuAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="version != null">
+        version = #{version,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.learn.sso.server.model.Premissions">
+    update t_menu
+    set menu_name = #{menuName,jdbcType=VARCHAR},
+      menu_code = #{menuCode,jdbcType=VARCHAR},
+      menu_addr = #{menuAddr,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      version = #{version,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
